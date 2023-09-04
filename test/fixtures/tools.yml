@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  toolname: MyString
+  fromdate: MyString
+  todate: MyString
+  no_tools: 1
+  cost: 1
+  user: one
+
+two:
+  toolname: MyString
+  fromdate: MyString
+  todate: MyString
+  no_tools: 1
+  cost: 1
+  user: two

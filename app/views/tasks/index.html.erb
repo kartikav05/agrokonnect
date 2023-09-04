@@ -1,0 +1,65 @@
+
+
+<div class="container" style="margin-top: 100px;">
+<form class="d-flex" role="search" action="<%= search_results_path %>">
+      <input class="form-control me-2" type="search" placeholder="Search" name="title" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  <div class="row mt-2">
+    <% @tasks.each do |task| %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="background-color: #D6E6D6; max-width: 500px; margin: 0 auto;">
+          <div class="card-body" style="min-height:360px;">
+           <h3 class="card-title"><%= task.taskname %></h3>
+<p><strong>Job Poster:</strong> <%= @task_usernames[task.id] %></p>
+<p class="card-text"><strong>Start Date:</strong> <%= task.startdate %></p>
+<p class="card-text"><strong>End Date:</strong> <%= task.enddate %></p>
+<p class="card-text"><strong>Compensation:</strong> ₹<%= task.componsation %></p>
+<p class="card-text"><strong>Description:</strong> <%= task.taskdesc %></p>
+
+             <% if !(current_user.name == @task_usernames[task.id]) %>
+            <%= form_with(model: @notification) do |form| %>
+  <% if @notification.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@notification.errors.count, "error") %> prohibited this notification from being saved:</h2>
+
+      <ul>
+        <% @notification.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+    <%= form.hidden_field :user_id ,value: task.user_id%>
+  
+    <%= form.hidden_field :content,value:"#{current_user.name} has appliied for the task #{task.taskname} you posted" %>
+
+    <%= form.hidden_field :status,value:"pending" %>
+ 
+    <%= form.hidden_field :task_id,value:task.id %>
+
+    <%= form.hidden_field :tool_id,value:"" %>
+  
+    <%= form.hidden_field :requester_id,value:current_user.id %>
+  <div>
+    <%= form.submit "Apply",class:'btn btn-primary' %>
+  </div>
+<% end %>
+            <% end%>
+          </div>
+        </div>
+        
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+

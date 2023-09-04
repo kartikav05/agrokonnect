@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag "style_1" %>
+
+<div class="p-5 my-4 bg-body-tertiary rounded-3">
+  <div class="container-fluid py-5 px-5 my-2 my-form">
+    <h1 class="display-5 fw-bold text-success text-center"> Tool Listing</h1>
+    <%= form_with(model: tool, class: "form") do |form| %>
+      <% if tool.errors.any? %>
+        <div class="alert alert-danger">
+          <h2><%= pluralize(tool.errors.count, "error") %> prohibited this tool from being saved:</h2>
+          <ul>
+            <% tool.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="mb-3">
+        <%= form.label :toolname, "Tool Name", class: "form-label" %>
+        <%= form.text_field :toolname, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :fromdate, "From Date", class: "form-label" %>
+        <%= form.date_field :fromdate, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :todate, "To Date", class: "form-label" %>
+        <%= form.date_field :todate, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :no_tools, "Number of Tools", class: "form-label" %>
+        <%= form.number_field :no_tools, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :cost, "Cost", class: "form-label" %>
+        <%= form.number_field :cost, class: "form-control" %>
+      </div>
+      <%= form.hidden_field :user_id %>
+      <div class="mb-3">
+        <%= form.submit "List Tool", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

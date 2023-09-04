@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  taskname: MyString
+  taskdesc: MyString
+  startdate: MyString
+  enddate: MyString
+  componsation: MyString
+  user: one
+
+two:
+  taskname: MyString
+  taskdesc: MyString
+  startdate: MyString
+  enddate: MyString
+  componsation: MyString
+  user: two

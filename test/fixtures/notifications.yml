@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  content: MyText
+  status: MyString
+  task: one
+  tool: one
+  requester_id: 1
+
+two:
+  user: two
+  content: MyText
+  status: MyString
+  task: two
+  tool: two
+  requester_id: 1
