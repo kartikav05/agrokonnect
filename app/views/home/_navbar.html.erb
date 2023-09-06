@@ -28,18 +28,10 @@
 
           <li class="nav-item">
             <a class="nav-link active mx-2" aria-current="page" href="/notifications">
-            <!--
-              <button type="button" class="btn btn-success position-relative">
-                                             Notifications
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            <%= @unread %>
-               <span class="visually-hidden">unread messages</span>
-             </span>
-              </button>
-               -->
-                 <button type="button" class="icon-button">
+      
+    <button type="button" class="icon-button">
     <span class="material-icons" style="font-size:35px">notifications</span>
-    <span class="icon-button__badge" > <%=@unread%></span>
+    <span class="icon-button__badge" > <%=$unread%></span>
   </button>
             </a>
           </li>
