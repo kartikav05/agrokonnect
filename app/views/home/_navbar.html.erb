@@ -1,10 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand fst-italic fs-4" href="/">
-      <%= image_tag("leaf.png", class: 'd-inline-block align-text-top', style: 'background-color: white; border-radius: 100px;') %>
-      AgroKonnect
+      <%= image_tag("leaf.png", class: 'd-inline-block align-text-top', style:
+      'background-color: white; border-radius: 100px;') %> AgroKonnect
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -20,58 +28,72 @@
         </li>
       </ul>
       <% if user_signed_in? %>
-        <form class="d-flex" role="search" action="<%= search_results_path %>">
-          <input class="form-control me-2" type="search" placeholder="Enter Tool/Task Title" name="title" aria-label="Search">
-          <button class="btn btn-dark" type="submit">Search</button>
-        </form>
-        <ul class="navbar-nav ms-auto">
-
-          <li class="nav-item">
-            <a class="nav-link active mx-2" aria-current="page" href="/notifications">
-      
-    <button type="button" class="icon-button">
-    <span class="material-icons" style="font-size:35px">notifications</span>
-    <% if $unread > 0  %>
-    <span class="icon-button__badge" > <%=$unread%></span>
-    <%end%>
-  </button>
-            </a>
-          </li>
-
-
-
-          <li class="nav-item">
-            <a class="nav-link active mx-2" aria-current="page" href="/message/index">
-              <%= image_tag("chat.png") %>
-              
-            </a>
-          </li>
-
-          <% if current_user.profile_picture.attached? %>
-            <li class="nav-item">
-              <a class="nav-link active mx-2" aria-current="page" href="/myprofile">
-                <%= image_tag current_user.profile_picture, style: 'width:32px;height:32px' %>
-              </a>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to image_tag("profile-user.png"), myprofile_path, class: 'nav-link active mx-2' %>
-            </li>
-          <% end %>
-          <li class="nav-item">
-            <button type="button" class="btn btn-danger m-1">
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'auth_btn' %>
+      <form class="d-flex" role="search" action="<%= search_results_path %>">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Enter Tool/Task Title"
+          name="title"
+          aria-label="Search"
+        />
+        <button class="btn btn-dark" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link active mx-2"
+            aria-current="page"
+            href="/notifications"
+          >
+            <button type="button" class="icon-button">
+              <span class="material-icons" style="font-size: 35px"
+                >notifications</span
+              >
+              <% if $unread > 0 %>
+              <span class="icon-button__badge"> <%=$unread%></span>
+              <%end%>
             </button>
-          </li>
-        </ul>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link active mx-2"
+            aria-current="page"
+            href="/message/index"
+          >
+            <%= image_tag("chat.png") %>
+          </a>
+        </li>
+
+        <% if current_user.profile_picture.attached? %>
+        <li class="nav-item">
+          <a class="nav-link active mx-2" aria-current="page" href="/myprofile">
+            <%= image_tag current_user.profile_picture, style:
+            'width:32px;height:32px' %>
+          </a>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to image_tag("profile-user.png"), myprofile_path, class:
+          'nav-link active mx-2' %>
+        </li>
+        <% end %>
+        <li class="nav-item">
+          <button type="button" class="btn btn-danger m-1">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete,
+            class: 'auth_btn' %>
+          </button>
+        </li>
+      </ul>
       <% else %>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary m-1">
-              <%= link_to 'Login', new_user_session_path, class: 'auth_btn' %>
-            </button>
-          </li>
-        </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <button type="button" class="btn btn-primary m-1">
+            <%= link_to 'Login', new_user_session_path, class: 'auth_btn' %>
+          </button>
+        </li>
+      </ul>
       <% end %>
     </div>
   </div>
