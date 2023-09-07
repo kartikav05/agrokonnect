@@ -28,55 +28,43 @@
           <p class="card-text">
             <strong>Available Till:</strong> <%= tool.todate %>
           </p>
-      
+
           <p class="card-text"><strong>Cost:</strong> ₹<%= tool.cost %></p>
-          
- <% if tool.no_tools>0 %>
-             <p class="card-text"><strong>Number of Tools:</strong> <%= tool.no_tools %></p>
-             
-            <% if !(current_user.name == @tool_usernames[tool.id]) %>
 
-        <%= form_with(model: @notification) do |form| %>
-  <% if @notification.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@notification.errors.count, "error") %> prohibited this notification from being saved:</h2>
+          <% if tool.no_tools>0 %>
+          <p class="card-text">
+            <strong>Number of Tools:</strong> <%= tool.no_tools %>
+          </p>
 
-      <ul>
-        <% @notification.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <% if !(current_user.name == @tool_usernames[tool.id]) %> <%=
+          form_with(model: @notification) do |form| %> <% if
+          @notification.errors.any? %>
+          <div style="color: red">
+            <h2>
+              <%= pluralize(@notification.errors.count, "error") %> prohibited
+              this notification from being saved:
+            </h2>
 
-  
-    <%= form.hidden_field :user_id ,value: tool.user_id%>
-  
-    <%= form.hidden_field :content,value:"#{current_user.name} has requested for the tool #{tool.toolname} you posted" %>
-
-    <%= form.hidden_field :status,value:"pending" %>
- 
-    <%= form.hidden_field :task_id,value:"" %>
-
-    <%= form.hidden_field :tool_id,value:tool.id %>
-  
-    <%= form.hidden_field :requester_id,value:current_user.id %>
-  <div>
-    <%= form.submit "Request",class:'btn btn-primary' %>
-  </div>
-<% end %>
-
-       <% end%>
-
-            <%else%>
-
-   <p class="text-danger"><strong>Tool is out of stock</strong></p>
-            <%end%>
-           
+            <ul>
+              <% @notification.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
           </div>
+          <% end %> <%= form.hidden_field :user_id ,value: tool.user_id%> <%=
+          form.hidden_field :content,value:"#{current_user.name} has requested
+          for the tool #{tool.toolname} you posted" %> <%= form.hidden_field
+          :status,value:"pending" %> <%= form.hidden_field :task_id,value:"" %>
+          <%= form.hidden_field :tool_id,value:tool.id %> <%= form.hidden_field
+          :requester_id,value:current_user.id %>
+          <div><%= form.submit "Request",class:'btn btn-primary' %></div>
+          <% end %> <% end%> <%else%>
+
+          <p class="text-danger"><strong>Tool is out of stock</strong></p>
+          <%end%>
         </div>
       </div>
+    </div>
     <% end %>
   </div>
-
 </div>
