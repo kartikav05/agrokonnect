@@ -35,6 +35,11 @@
               <%= form.label :enddate, "End Date" , class: "form-label" %>
                 <%= form.date_field :enddate, class: "form-control" , value: Date.today %>
             </div>
+            
+              <div class="mb-3">
+              <%= form.label :location, "Location" , class: "form-label" %>
+                <%= form.text_field :location, class: "form-control" %>
+            </div>
             <div class="mb-3">
               <%= form.label :componsation, "Compensation" , class: "form-label" %>
                 <%= form.text_field :componsation, class: "form-control" %>
