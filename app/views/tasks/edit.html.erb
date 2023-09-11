@@ -1,52 +1,53 @@
+<%# render "form" , task: @task %>
 
 
-<%# render "form", task: @task %>
-
-
-<div class="p-5 my-4 bg-body-tertiary rounded-3">
-  <div class="container-fluid py-5 px-5 my-2 my-form">
-    <h1 class="display-5 fw-bold text-success text-center">Edit Task</h1>
-    <%= form_with(model: @task, class: "form") do |form| %>
-      <% if @task.errors.any? %>
-        <div class="alert alert-danger">
-          <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-          <ul>
-            <% @task.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <div class="mb-3">
-        <%= form.label :taskname, "Task Name", class: "form-label" %>
-        <%= form.text_field :taskname, class: "form-control" %>
-      </div>
-      <div class="mb-3">
-        <%= form.label :taskdesc, "Task Description", class: "form-label" %>
-        <%= form.text_field :taskdesc, class: "form-control" %>
-      </div>
-     <div class="mb-3">
-  <%= form.label :startdate, "Start Date", class: "form-label" %>
-  <%= form.date_field :startdate, class: "form-control", value: Date.today %>
-</div>
-<div class="mb-3">
-  <%= form.label :enddate, "End Date", class: "form-label" %>
-  <%= form.date_field :enddate, class: "form-control", value: Date.today %>
-</div>
-      <div class="mb-3">
-        <%= form.label :componsation, "Compensation", class: "form-label" %>
-        <%= form.text_field :componsation, class: "form-control" %>
-      </div>
-      <%= form.hidden_field :user_id %>
-      <div class="mb-3">
-        <%= form.submit "Update Task", class: "btn btn-success" %>
-      </div>
-    <% end %>
+  <div class="p-5 my-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5 px-5 my-2 my-form">
+      <h1 class="display-5 fw-bold text-success text-center">Edit Task</h1>
+      <%= form_with(model: @task, class: "form" ) do |form| %>
+        <% if @task.errors.any? %>
+          <div class="alert alert-danger">
+            <h2>
+              <%= pluralize(@task.errors.count, "error" ) %> prohibited this task from being saved:
+            </h2>
+            <ul>
+              <% @task.errors.each do |error| %>
+                <li>
+                  <%= error.full_message %>
+                </li>
+                <% end %>
+            </ul>
+          </div>
+          <% end %>
+            <div class="mb-3">
+              <%= form.label :taskname, "Task Name" , class: "form-label" %>
+                <%= form.text_field :taskname, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :taskdesc, "Task Description" , class: "form-label" %>
+                <%= form.text_field :taskdesc, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :startdate, "Start Date" , class: "form-label" %>
+                <%= form.date_field :startdate, class: "form-control" , value: Date.today %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :enddate, "End Date" , class: "form-label" %>
+                <%= form.date_field :enddate, class: "form-control" , value: Date.today %>
+            </div>
+            <div class="mb-3">
+              <%= form.label :componsation, "Compensation" , class: "form-label" %>
+                <%= form.text_field :componsation, class: "form-control" %>
+            </div>
+            <%= form.hidden_field :user_id %>
+              <div class="mb-3">
+                <%= form.submit "Update Task" , class: "btn btn-success" %>
+              </div>
+              <% end %>
+    </div>
   </div>
-</div>
 
-<div>
-  <%= link_to "Show this task", @task %> |
-  <%= link_to "Back to tasks", tasks_path %>
-</div>
-
+  <div>
+    <%= link_to "Show this task" , @task %> |
+      <%= link_to "Back to tasks" , tasks_path %>
+  </div>

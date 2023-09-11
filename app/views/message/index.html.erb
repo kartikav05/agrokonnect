@@ -4,55 +4,42 @@
   </h1>
   <div class="container-fluid py-5 px-5 my-2 my-form">
     <div id="chat-room">
-      <% @messages.each do |message| %> <% if current_user.name ==
-      message.user.name %>
+      <% @messages.each do |message| %>
+        <% if current_user.name==message.user.name %>
 
-      <div class="container mt-2 py-1">
-        <div
-          class="m-1 p-1 ms-auto"
-          style="background-color: white; border-radius: 10px; max-width: 250px"
-        >
-          <p>
-            <strong class="text-success"><%= message.user.name %></strong>: <%=
-            message.content %>
-          </p>
-        </div>
-      </div>
+          <div class="container mt-2 py-1">
+            <div class="m-1 p-1 ms-auto" style="background-color: white; border-radius: 10px; max-width: 250px">
+              <p>
+                <strong class="text-success">
+                  <%= message.user.name %>
+                </strong>: <%= message.content %>
+              </p>
+            </div>
+          </div>
 
-      <% else %>
+          <% else %>
 
-      <div class="container mt-2 py-1">
-        <div
-          class="m-1 p-1"
-          style="background-color: white; border-radius: 10px; max-width: 250px"
-        >
-          <p>
-            <strong class="text-warning"><%= message.user.name %></strong>: <%=
-            message.content %>
-          </p>
-        </div>
-      </div>
+            <div class="container mt-2 py-1">
+              <div class="m-1 p-1" style="background-color: white; border-radius: 10px; max-width: 250px">
+                <p>
+                  <strong class="text-warning">
+                    <%= message.user.name %>
+                  </strong>: <%= message.content %>
+                </p>
+              </div>
+            </div>
 
-      <% end %> <% end %>
+            <% end %>
+              <% end %>
     </div>
 
     <div class="container mt-2 py-1" id="my-chat"></div>
 
     <form id="chat-form">
       <div class="d-flex mt-4">
-        <input
-          type="text"
-          class="form-control"
-          id="chat-text-input1"
-          name="message"
-          placeholder="Type your message"
-          required
-        />
-        <input
-          type="hidden"
-          id="chat-text-input2"
-          value="<%= current_user.id %>"
-        />
+        <input type="text" class="form-control" id="chat-text-input1" name="message" placeholder="Type your message"
+          required />
+        <input type="hidden" id="chat-text-input2" value="<%= current_user.id %>" />
         <button class="btn btn-primary ms-3" type="submit">Send</button>
       </div>
     </form>

@@ -1,22 +1,28 @@
-
-
 <%# render @task %>
 
-<div class="p-5 my-4 bg-body-tertiary rounded-3">
+  <div class="p-5 my-4 bg-body-tertiary rounded-3">
 
-  <div class="container-fluid py-5 px-5 my-2 my-form">
-    <h1 class="display-5 fw-bold text-success text-center">Task Details</h1>
-    <p><strong>Task Name:</strong> <%= @task.taskname %></p>
-    <p><strong>Task Description:</strong> <%= @task.taskdesc %></p>
-    <p><strong>Start Date:</strong> <%= @task.startdate %></p>
-    <p><strong>End Date:</strong> <%= @task.enddate %></p>
-    <p><strong>Compensation:</strong> <%= @task.componsation %></p>
+    <div class="container-fluid py-5 px-5 my-2 my-form">
+      <h1 class="display-5 fw-bold text-success text-center">Task Details</h1>
+      <p><strong>Task Name:</strong>
+        <%= @task.taskname %>
+      </p>
+      <p><strong>Task Description:</strong>
+        <%= @task.taskdesc %>
+      </p>
+      <p><strong>Start Date:</strong>
+        <%= @task.startdate %>
+      </p>
+      <p><strong>End Date:</strong>
+        <%= @task.enddate %>
+      </p>
+      <p><strong>Compensation:</strong>
+        <%= @task.componsation %>
+      </p>
 
-    <div>
-      <%= link_to "Edit this task", edit_task_path(@task), class: "btn btn-primary" %>
-      <%= button_to "Destroy this task", @task, method: :delete, class: "btn btn-danger mt-1" %>
+      <div>
+        <%= link_to "Edit this task" , edit_task_path(@task), class: "btn btn-primary" %>
+          <%= button_to "Destroy this task" , @task, method: :delete, class: "btn btn-danger mt-1" %>
+      </div>
     </div>
   </div>
-</div>
-
-

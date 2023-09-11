@@ -1,44 +1,59 @@
-
-
 <h2 class="text-center">Search Results for "<%= params[:title] %>"</h2>
 <% if @tool_results.any? %>
   <div class="container mt-3">
-  <div class="row">
-    <% @tool_results.each do |tool| %>
-      <div class="col-md-4 mb-4">
-        <div class="card" style="background-color: #D6E6D6; max-width: 500px; margin: 0 auto;">
-          <div class="card-body">
-            <h3 class="card-title"><%= tool.toolname %></h3>
-            <p class="card-text"><strong>Available From:</strong> <%= tool.fromdate %></p>
-            <p class="card-text"><strong>Available Till:</strong> <%= tool.todate %></p>
-            <p class="card-text"><strong>Number of Tools:</strong> <%= tool.no_tools %></p>
-            <p class="card-text"><strong>Cost:</strong> ₹<%= tool.cost %></p>
+    <div class="row">
+      <% @tool_results.each do |tool| %>
+        <div class="col-md-4 mb-4">
+          <div class="card" style="background-color: #D6E6D6; max-width: 500px; margin: 0 auto;">
+            <div class="card-body">
+              <h3 class="card-title">
+                <%= tool.toolname %>
+              </h3>
+              <p class="card-text"><strong>Available From:</strong>
+                <%= tool.fromdate %>
+              </p>
+              <p class="card-text"><strong>Available Till:</strong>
+                <%= tool.todate %>
+              </p>
+              <p class="card-text"><strong>Number of Tools:</strong>
+                <%= tool.no_tools %>
+              </p>
+              <p class="card-text"><strong>Cost:</strong> ₹<%= tool.cost %>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+        <% end %>
+    </div>
   </div>
-</div>
-<% end %>
+  <% end %>
 
-<%if @task_results.any?%>
-<div class="container mt-3">
-  <div class="row">
-    <% @task_results.each do |task| %>
-      <div class="col-md-4 mb-4">
-        <div class="card" style="background-color: #D6E6D6; max-width: 500px; margin: 0 auto;">
-          <div class="card-body">
-            <h3 class="card-title"><%= task.taskname %></h3>
-         <p class="card-text"><strong>Start Date:</strong> <%= task.startdate %></p>
-<p class="card-text"><strong>End Date:</strong> <%= task.enddate %></p>
-<p class="card-text"><strong>Compensation:</strong> <%= task.componsation %></p>
-<p class="card-text"><strong>Description:</strong> <%= task.taskdesc %></p>
-          </div>
+    <%if @task_results.any?%>
+      <div class="container mt-3">
+        <div class="row">
+          <% @task_results.each do |task| %>
+            <div class="col-md-4 mb-4">
+              <div class="card" style="background-color: #D6E6D6; max-width: 500px; margin: 0 auto;">
+                <div class="card-body">
+                  <h3 class="card-title">
+                    <%= task.taskname %>
+                  </h3>
+                  <p class="card-text"><strong>Start Date:</strong>
+                    <%= task.startdate %>
+                  </p>
+                  <p class="card-text"><strong>End Date:</strong>
+                    <%= task.enddate %>
+                  </p>
+                  <p class="card-text"><strong>Compensation:</strong>
+                    <%= task.componsation %>
+                  </p>
+                  <p class="card-text"><strong>Description:</strong>
+                    <%= task.taskdesc %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <% end %>
         </div>
       </div>
-    <% end %>
-  </div>
-</div>
-<%end%>
-
-
+      <%end%>
