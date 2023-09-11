@@ -1,64 +1,89 @@
-
 <%= stylesheet_link_tag "style_1" %>
-<div class="p-5 my-4 bg-body-tertiary rounded-3 ">
-  <div class="container-fluid py-5 px-5 my-2 my-form shadow-md" style="min-height:600px">
+<div class="p-5 my-4 bg-body-tertiary rounded-3">
+  <div
+    class="container-fluid py-5 px-5 my-2 my-form shadow-md"
+    style="min-height: 600px"
+  >
     <h1 class="display-6 fw-bold text-success text-center">Notifications</h1>
-  <% @notifications.each do |notification| %>
-<% if notification.user_id==current_user.id %>
-<div class='container mt-4 py-2'id="notifications" style="background-color:#93CEB5;border-radius:10px;">
-<div class="d-flex justify-content-center align-items-center">
-<p class='fs-5 mt-1 ms-5'>
-   <%= notification.content %>
-   </p>
-<button type="button" class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
- Details
-</button>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5 ms-auto" id="exampleModalLabel">Notification Details</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-   <div class="modal-body text-center">
-  <% if notification.requester_id == @user.id %>
-    <p>Requester Name: <%= @user.name %></p>
-    <p>Email: <%= @user.email %></p>
-    <p>Phone: <%= @user.phone_number %></p>
 
-    <% if notification.status == "pending" %>
-      <p class="text-warning">Status: <%= notification.status %></p>
-      <div class="d-flex justify-content-center">
-        <%= form_with(model: notification, url: notification_path(notification), method: :patch) do |form| %>
-          <%= form.hidden_field :status, value: 'accepted' %>
-          <%= form.submit 'Accept', class: 'btn btn-success m-3' %>
-        <% end %>
-        <%= form_with(model: notification, url: notification_path(notification), method: :patch) do |form| %>
-          <%= form.hidden_field :status, value: 'rejected' %>
-          <%= form.submit 'Reject', class: 'btn btn-danger m-3' %>
-        <% end %>
-      </div>
-    <% elsif notification.status == "rejected" %>
-      <p class="text-danger">Status: <%= notification.status %></p>
-    <% else %>
-      <p class="text-success">Status: <%= notification.status %></p>
-    <% end %>
+    <% @notifications.each do |notification| %> <% if notification.user_id ==
+    current_user.id %>
+    <div
+      class="container mt-4 py-2"
+      id="notifications"
+      style="background-color: #93ceb5; border-radius: 10px"
+    >
+      <div class="d-flex justify-content-center align-items-center">
+        <p class="fs-5 mt-1 ms-5"><%= notification.content %></p>
+        <button
+          type="button"
+          class="btn btn-primary ms-auto"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal<%=notification.id %>"
+        >
+          Details
+        </button>
 
-  <% end %>
-</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    </div>
+        <div
+          class="modal fade"
+          id="exampleModal<%=notification.id %>"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div
+            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+          >
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5 ms-auto" id="exampleModalLabel">
+                  Notification Details
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body text-center">
+                <% if notification.requester_id == @user.id %>
+                <p>Requester Name: <%= @user.name %></p>
+                <p>Email: <%= @user.email %></p>
+                <p>Phone: <%= @user.phone_number %></p>
+
+                <% if notification.status == "pending" %>
+                <p class="text-warning">Status: <%= notification.status %></p>
+                <div class="d-flex justify-content-center">
+                  <%= form_with(model: notification, url:
+                  notification_path(notification), method: :patch) do |form| %>
+                  <%= form.hidden_field :status, value: 'accepted' %> <%=
+                  form.submit 'Accept', class: 'btn btn-success m-3' %> <% end
+                  %> <%= form_with(model: notification, url:
+                  notification_path(notification), method: :patch) do |form| %>
+                  <%= form.hidden_field :status, value: 'rejected' %> <%=
+                  form.submit 'Reject', class: 'btn btn-danger m-3' %> <% end %>
+                </div>
+                <% elsif notification.status == "rejected" %>
+                <p class="text-danger">Status: <%= notification.status %></p>
+                <% else %>
+                <p class="text-success">Status: <%= notification.status %></p>
+                <% end %> <% end %>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <% end %> <% end %>
   </div>
 </div>
-</div>  
-  <% end %>
-  <%end%>
-</div>
-
-  </div>
-</div>
-
-

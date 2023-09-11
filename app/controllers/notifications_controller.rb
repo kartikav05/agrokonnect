@@ -46,6 +46,13 @@ class NotificationsController < ApplicationController
   def update
     respond_to do |format|
       if @notification.update(notification_params)
+        if @notification.status =='accepted'
+          tool = Tool.find_by(id: @notification.tool_id)
+          if (tool.present? && tool.no_tools > 0)
+            tool.decrement!(:no_tools)
+          end
+        end
+
         format.html { redirect_to notifications_url, notice: "Notification was successfully updated." }
         format.json { render :show, status: :ok, location: @notification }
       else
