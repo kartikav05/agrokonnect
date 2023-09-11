@@ -9,7 +9,7 @@ if (chatRoom) {
   consumer.subscriptions.create("RoomChannel", {
     connected() {
       // Called when the subscription is ready for use on the server
-      console.log("connected");
+  
     },
 
     disconnected() {
@@ -44,8 +44,7 @@ if (chatRoom) {
       message: message,
       id: userId,
     });
-    console.log("Sending message:", message);
-
+   
     document.getElementById("chat-text-input1").value = "";
   });
 }
