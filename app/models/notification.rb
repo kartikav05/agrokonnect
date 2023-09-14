@@ -31,7 +31,7 @@ class Notification < ApplicationRecord
 
 puts 'notification sent'
     
-     
+ 
     end
   end
 
