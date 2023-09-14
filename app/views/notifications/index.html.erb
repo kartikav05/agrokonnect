@@ -4,7 +4,7 @@
       <h1 class="display-6 fw-bold text-success text-center">Notifications</h1>
 
       <% @notifications.each do |notification| %>
-        <% if notification.user_id==current_user.id %>
+       
           <div class="container mt-4 py-2" id="notifications" style="background-color: #93ceb5; border-radius: 10px">
             <div class="d-flex justify-content-center align-items-center">
               <p class="fs-5 mt-1 ms-5">
@@ -26,7 +26,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-center">
-                      <% if notification.requester_id==@user.id %>
+                     
                         <p>Requester Name: <%= @user.name %>
                         </p>
                         <p>Email: <%= @user.email %>
@@ -68,7 +68,7 @@
               </div>
             </div>
           </div>
-          <% end %>
-            <% end %>
+     
+           
     </div>
   </div>

@@ -5,9 +5,8 @@ class NotificationsController < ApplicationController
   # GET /notifications or /notifications.json
 
   def index
-    @notifications = Notification.all 
+    @notifications = Notification.where(user_id: current_user.id)
     usernames = {}
-    
     @notifications.each do |notification|
     @user = User.find_by(id: notification.requester_id)
       
