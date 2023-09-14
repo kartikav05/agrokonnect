@@ -3,12 +3,13 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   # GET /notifications or /notifications.json
+
   def index
     @notifications = Notification.all 
     usernames = {}
     
     @notifications.each do |notification|
-      @user = User.find_by(id: notification.requester_id)
+    @user = User.find_by(id: notification.requester_id)
       
     end
      
