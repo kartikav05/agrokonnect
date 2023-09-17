@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'event/index'
-  get 'event/calendar'
-  get 'message/index'
 
-  mount ActionCable.server => '/cable'
   root 'home#homepage'
+  
+  mount ActionCable.server => '/cable'
 
   resources :notifications
 
@@ -30,6 +28,13 @@ Rails.application.routes.draw do
   get '/mylistings1', to:'tools#my_tools'
  
   get '/search/results', to: 'search#results'
+
+  get '/events', to: 'event#index'
+
+  get '/calendar', to: 'event#calendar'
+
+  get 'message/index'
+
   get 'listings/mylistings'
 
 
