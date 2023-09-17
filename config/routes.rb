@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'event/index'
+  get 'event/calendar'
   get 'message/index'
 
   mount ActionCable.server => '/cable'
