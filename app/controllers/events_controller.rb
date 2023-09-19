@@ -3,7 +3,10 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = Event.all
+    id = current_user.id
+    req_mail = current_user.email
+    @events = Event.where(user_id: id).or(Event.where(req_mail: req_mail))
+    render json: @events
   end
 
   # GET /events/1 or /events/1.json
@@ -25,7 +28,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
+        format.html {redirect_to root_url, notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }

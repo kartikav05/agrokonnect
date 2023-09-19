@@ -11,32 +11,31 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+ <div class="form-group">
+  <%= form.label :title, class: "form-control-label", style: "display: block" %>
+  <%= form.text_field :title, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.label :start, style: "display: block" %>
-    <%= form.date_field :start %>
-  </div>
+<div class="form-group">
+  <%= form.label :start, class: "form-control-label", style: "display: block" %>
+  <%= form.date_field :start, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.label :end, style: "display: block" %>
-    <%= form.date_field :end %>
-  </div>
+<div class="form-group">
+  <%= form.label :end, class: "form-control-label", style: "display: block" %>
+  <%= form.date_field :end, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
+<div class="form-group">
+  <%= form.hidden_field :user_id, value: current_user.id %>
+</div>
 
-  <div>
-    <%= form.label :req_mail, style: "display: block" %>
-    <%= form.text_field :req_mail %>
-  </div>
+<div class="form-group">
+  <%= form.label :req_mail, "Requester Mail", class: "form-control-label", style: "display: block" %>
+  <%= form.text_field :req_mail, class: "form-control" %>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+<div class="form-group">
+  <%= form.submit class: "btn btn-primary mt-2" %>
+</div>
 <% end %>
