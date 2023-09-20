@@ -30,9 +30,9 @@ Rails.application.routes.draw do
  
   get '/search/results', to: 'search#results'
 
-  get '/events', to: 'event#index'
+ 
 
-  get '/calendar', to: 'event#calendar'
+  get '/calendar', to: 'events#new'
 
   get 'message/index'
 

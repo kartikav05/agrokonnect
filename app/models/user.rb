@@ -12,7 +12,7 @@ has_many :tools
 has_many :notifications
 
 has_many :messages
-
+has_many :events
 
    validates :name, :email, :phone_number, presence: true
 end
