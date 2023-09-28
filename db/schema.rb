@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_19_165317) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_09_27_103948) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -70,6 +71,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_165317) do
     t.index ["task_id"], name: "index_notifications_on_task_id"
     t.index ["tool_id"], name: "index_notifications_on_tool_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
