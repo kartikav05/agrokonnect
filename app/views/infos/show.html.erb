@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @info %>
+  <div class="p-5 my-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5 px-5 my-2 my-form">
+      <h1 class="display-5 fw-bold text-success text-center">Post Information</h1>
 
-<div>
-  <%= link_to "Edit this info", edit_info_path(@info) %> |
-  <%= link_to "Back to infos", infos_path %>
-
-  <%= button_to "Destroy this info", @info, method: :delete %>
-</div>
+      <p><strong>Title:</strong>
+        <%= @info.title %>
+      </p>
+      <p><strong>Location:</strong>
+        <%= @info.location %>
+      </p>
+      <p><strong>Information</strong>
+        <%= @info.news %>
+      </p>
+     <%= link_to "Edit this Post" , edit_info_path(@info), class: "btn btn-primary" %>
+      <%= button_to "Delete this post" , @info, method: :delete, class: "btn btn-danger mt-1" %>
+      </div>
+      </div>

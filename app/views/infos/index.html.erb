@@ -1,14 +1,23 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Infos</h1>
-
-<div id="infos">
-  <% @infos.each do |info| %>
-    <%= render info %>
-    <p>
-      <%= link_to "Show this info", info %>
-    </p>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <% @infos.each do |info| %>
+      <div class="col-md-4 mb-4">
+        <div class="card mt-4" style="background-color: #D6E6D6; max-width: 500px; margin: 0 auto;">
+          <div class="card-body">
+            <h3 class="card-title">
+              <%= info.title %>
+            </h3>
+            <p class="card-text"><strong>Location:</strong>
+              <%= info.location%>
+            </p>
+            <p class="card-text"><strong>News:</strong>
+              <%= info.news %>
+            </p>
+              <a href="<%= info_path(info) %>" class="btn btn-primary">Edit This Post</a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
 </div>
-
-<%= link_to "New info", new_info_path %>
