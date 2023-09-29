@@ -1,5 +1,5 @@
 
-
+<%= stylesheet_link_tag "style_1" %>
 <div id="carouselExampleIndicators" class="carousel slide vh-50" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -27,24 +27,13 @@
   </button>
 </div>
 
+   <div class="alert-container mt-2">
+            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+         <p> You have selected <%= session[:my_re] %> Region </p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div>
 
-<form class="form-inline" id="my-form" action="/">
-  <label class="my-1 mr-2" for="regionSelector">Choose Region</label>
-  <select class="custom-select my-1 mr-sm-2" name="Region" id="regionSelector" onchange="this.form.submit()">
-    <option selected>Choose...</option>
-    <option value="Mandya">Mandya</option>
-    <option value="Mysore">Mysore</option>
-    <option value="Hubli">Hubli</option>
-    <option value="Dharwad">Dharwad</option>
-    <option value="Chikkamagaluru">Chikkamagaluru</option>
-    <option value="Belgavi">Belgavi</option>
-    <option value="Bellary">Bellary</option>
-    <option value="Bidar">Bidar</option>
-    <option value="Chitradurga">Chitradurga</option>
-    <option value="Davangere">Davangere</option>
-  </select>
-  </form>
-<p> You have selected <%= session[:my_re] %> Region </p>
 
 
 
