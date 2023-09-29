@@ -1,0 +1,18 @@
+<div class="container" style="margin-top:20px;">
+  <div class="row mt-2">
+    <% @news.each do |info| %>
+      <div class="col-md-12 mb-4">
+        <div class="card border border-dark" style="background-color: #93ceb5; max-width: 700px; margin: 0 auto;">
+          <div class="card-body" style="min-height:260px;">
+            <h3 class="card-title">
+              <%= info.title%>
+            </h3>
+              <p class="card-text"><strong>News:</strong>
+              <%= info.news %>
+            </p>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <%end%>
