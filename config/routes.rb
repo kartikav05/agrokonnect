@@ -32,7 +32,7 @@ Rails.application.routes.draw do
  
   get '/search/results', to: 'search#results'
 
-  get '/trendings', to: 'trending#index'
+  get '/trending', to: 'trending#index'
 
  
 
