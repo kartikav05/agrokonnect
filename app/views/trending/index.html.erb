@@ -1,18 +1,12 @@
-<h1>Trending#index</h1>
-<p>Find me in app/views/trending/index.html.erb</p>
 
-<% @news.each do |info|%>
-<%= render info%>
-<%end%>
+<div class="p-5 my-4 bg-body-tertiary rounded-3">
+  <div class="trending container-fluid py-5 px-5 my-2 my-form shadow-md" style="min-height: 600px">
 
-<br/>
+<%= render 'trending/news'%>
+<%= render 'trending/tool'%>
+<%= render 'trending/tasks'%>
 
-<% @tools.each do |tool|%>
-<%= render tool%>
-<%end%>
+</div>
+</div>
 
-<br/>
 
-<% @tasks.each do |task|%>
-<%= render task%>
-<%end%>
