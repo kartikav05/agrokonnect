@@ -32,6 +32,8 @@ Rails.application.routes.draw do
  
   get '/search/results', to: 'search#results'
 
+  get '/trendings', to: 'trending#index'
+
  
 
   get '/calendar', to: 'events#new'
