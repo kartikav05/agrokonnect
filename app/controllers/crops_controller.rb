@@ -4,6 +4,13 @@ class CropsController < ApplicationController
   # GET /crops or /crops.json
   def index
     @crops = Crop.all
+    @crops_usernames ={}
+    @notification = Notification.new
+
+    @crops.each do |crop|
+      user = User.find_by(id: crop.user_id)
+      @crops_usernames[crop.id] = user.name if user
+    end
   end
 
   # GET /crops/1 or /crops/1.json
