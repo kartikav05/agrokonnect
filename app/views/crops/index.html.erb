@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Crops</h1>
+
+<div id="crops">
+  <% @crops.each do |crop| %>
+    <%= render crop %>
+    <p>
+      <%= link_to "Show this crop", crop %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New crop", new_crop_path %>

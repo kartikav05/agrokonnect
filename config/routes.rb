@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :seeds
+  resources :crops
   get 'trending/index'
   resources :infos
   resources :events
