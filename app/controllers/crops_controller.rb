@@ -22,6 +22,7 @@ class CropsController < ApplicationController
   # POST /crops or /crops.json
   def create
     @crop = Crop.new(crop_params)
+    @crop.user_id = current_user.id
 
     respond_to do |format|
       if @crop.save
