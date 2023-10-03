@@ -22,7 +22,7 @@ class SeedsController < ApplicationController
   # POST /seeds or /seeds.json
   def create
     @seed = Seed.new(seed_params)
-
+    @seed.user_id = current_user.id
     respond_to do |format|
       if @seed.save
         format.html { redirect_to seed_url(@seed), notice: "Seed was successfully created." }
