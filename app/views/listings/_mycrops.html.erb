@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <% @mycrops.each do |crop| %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="background-color: #D6E6D6; max-width: 500px; margin: 0 auto;">
+          <div class="card-body">
+            <h3 class="card-title">
+              <%= crop.name %>
+            </h3>
+            <p class="card-text"><strong>Weight:</strong>
+              <%= crop.weight %> kg
+            </p>
+            <p class="card-text"><strong>Cost:</strong> ₹<%= crop.cost %>
+            </p> 
+            <a href="<%= crop_path(crop) %>" class="btn btn-primary">View this Crop</a>
+          </div>
+        </div>  
+      </div>
+      <% end %>
+  </div>
+ 
+</div>
