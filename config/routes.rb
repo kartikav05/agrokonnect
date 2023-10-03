@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'trending/index'
+  resources :infos
   resources :events
 
   root 'home#homepage'
@@ -29,6 +31,8 @@ Rails.application.routes.draw do
   get '/mylistings1', to:'tools#my_tools'
  
   get '/search/results', to: 'search#results'
+
+  get '/trending', to: 'trending#index'
 
  
 

@@ -36,7 +36,25 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <% if @user.name == 'ADMIN'%>
+
+       <div class="row mt-4">
+        <div class="col-md-6 mb-2">
+          <div class="d-grid gap-2">
+            <%= link_to 'Post Information' , '/infos/new' , class: 'btn btn-outline-success my-btn ms-2' %>
+          </div>
+        </div>
+            <div class="col-md-6 mb-2">
+           <div class="d-grid gap-2">
+            <%= link_to 'Show Posts' , '/infos' , class: 'btn btn-outline-info my-btn ms-2' %>
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+     <%else%>
+    <div class="row mt-4">
         <div class="col-md-6 mb-2">
           <div class="d-grid gap-2">
             <%= link_to 'List Tools' , '/tools/new' , class: 'btn btn-outline-success my-btn' %>
@@ -60,3 +78,7 @@
       </div>
     </div>
   </div>
+
+      <%end%>
+
+     
