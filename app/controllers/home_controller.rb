@@ -9,5 +9,12 @@ class HomeController < ApplicationController
       notifications = Notification.where(status: 'pending', user_id: id)
       $unread= notifications.length
       end
+  #Listings for Homepage
+  @Tasks = Task.all.limit(3)
+  @Tools = Tool.all.limit(3)
+  @Seeds = Seed.all.limit(3)
+  @Crops = Crop.all.limit(3)
+  @Infos = Info.all.limit(4)
+
   end
 end

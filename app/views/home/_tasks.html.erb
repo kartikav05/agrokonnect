@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <% @Tasks.each do |task| %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="background-color: #D6E6D6; max-width: 500px; margin: 0 auto;">
+          <div class="card-body">
+            <h3 class="card-title">
+              <%= task.taskname %>
+            </h3>
+            <p class="card-text"><strong>Start Date:</strong>
+              <%= task.startdate %>
+            </p>
+             <p class="card-text"><strong>End Date:</strong>
+              <%= task.enddate %>
+            </p>
+           <p class="card-text"><strong>Compensation:</strong> ₹<%= task.componsation %>
+            </p>
+              <p class="card-text"><strong>Description:</strong>
+              <%= task.taskdesc %>
+            </p>
+           
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+   <a href="/tasks" class="btn btn-primary">View Details</a>
+</div>
