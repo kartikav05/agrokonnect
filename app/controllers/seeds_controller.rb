@@ -1,9 +1,17 @@
 class SeedsController < ApplicationController
   before_action :set_seed, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /seeds or /seeds.json
   def index
     @seeds = Seed.all
+    @seeds_usernames ={}
+    @notification = Notification.new
+
+    @seeds.each do |seed|
+      user = User.find_by(id: seed.user_id)
+      @seeds_usernames[seed.id] = user.name if user
+    end
+
   end
 
   # GET /seeds/1 or /seeds/1.json
