@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <% @Tools.each do |tool| %>
+      <div class="col-md-4 mb-4">
+        <div class="card" style="background-color: #D6E6D6; max-width: 500px; margin: 0 auto;">
+          <div class="card-body">
+            <h3 class="card-title">
+              <%= tool.toolname %>
+            </h3>
+            <p class="card-text"><strong>Available From:</strong>
+              <%= tool.fromdate %>
+            </p>
+            <p class="card-text"><strong>Available Till:</strong>
+              <%= tool.todate %>
+            </p>
+            <p class="card-text"><strong>Number of Tools:</strong>
+              <%= tool.no_tools %>
+            </p>
+            <p class="card-text"><strong>Cost:</strong> ₹<%= tool.cost %>
+            </p>
+           
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+   <a href="/tools" class="btn btn-primary">View Details</a>
+</div>

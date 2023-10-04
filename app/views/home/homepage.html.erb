@@ -8,13 +8,13 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active c-item">
-      <img src="https://source.unsplash.com/random/700x700/?agriculture" class="d-block w-100 c-img" alt="...">
+      <%= image_tag("cr_1.jpeg", class: 'd-block w-100 c-img')%>
     </div>
     <div class="carousel-item c-item">
-      <img src="https://source.unsplash.com/random/700x700/?farm" class="d-block w-100 c-img " alt="...">
+       <%= image_tag("cr_2.jpeg", class: 'd-block w-100 c-img')%>
     </div>
     <div class="carousel-item c-item">
-      <img src="https://source.unsplash.com/random/700x700/?farmer" class="d-block w-100 c-img" alt="...">
+       <%= image_tag("cr_3.jpeg", class: 'd-block w-100 c-img')%>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -34,7 +34,7 @@
             </div>
           </div>
 
-
+<%= render 'home/sections'%>
 
 
 

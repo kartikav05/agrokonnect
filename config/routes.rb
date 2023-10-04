@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :seeds
+  resources :crops
   get 'trending/index'
   resources :infos
   resources :events
@@ -20,7 +22,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-
 
   get 'home/homepage'
 

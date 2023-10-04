@@ -1,0 +1,24 @@
+<div class="p-5 my-4 bg-body-tertiary rounded-3">
+  <div class="container-fluid py-5 px-5 my-2 my-form">
+    <h1 class="display-5 fw-bold text-success text-center">Crop Details</h1>
+    <h3 class="card-title">
+      <%= @crop.name %>
+    </h3>
+    <p class="card-text"><strong>Weight:</strong>
+      <%= @crop.weight %> kg
+    </p>
+    <p class="card-text"><strong>Location:</strong>
+      <%= @crop.location %>
+    </p>
+    <p class="card-text"><strong>Cost:</strong>
+    ₹<%= @crop.cost %>
+    </p>
+    
+<div>
+  <%= link_to "Edit this", edit_crop_path(@crop),class:'btn btn-primary' %>
+  <%= button_to "Destroy this", @crop, method: :delete,class:'btn btn-danger mt-1' %>
+</div>
+
+</div>
+</div>
+

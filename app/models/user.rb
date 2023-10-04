@@ -14,5 +14,8 @@ has_many :notifications
 has_many :messages
 has_many :events
 
+has_many :seeds
+has_many :crops
+
    validates :name, :email, :phone_number, presence: true
 end

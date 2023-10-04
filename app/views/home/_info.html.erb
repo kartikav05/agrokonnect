@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <% @Infos.each do |info| %>
+      <div class="col-md-6 mb-4">
+        <div class="card mt-4" style="background-color: #D6E6D6; margin: 0 auto;">
+          <div class="card-body">
+            <h3 class="card-title">
+              <%= info.title %>
+            </h3>
+            <p class="card-text"><strong>News:</strong>
+              <%= info.news %>
+            </p>
+            
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+    <a href="/trending" class="btn btn-primary">View More</a>
+</div>
