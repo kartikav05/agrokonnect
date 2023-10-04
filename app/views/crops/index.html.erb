@@ -50,7 +50,7 @@
                           value: "#{current_user.name} has requested for the crop #{crop.name} you posted" %>
                           <%= form.hidden_field :status, value: "pending" %>
                             <%= form.hidden_field :task_id, value: "" %>
-                              <%= form.hidden_field :tool_id, value: crop.id %>
+                              <%= form.hidden_field :crop_id, value: crop.id %>
                                 <%= form.hidden_field :requester_id, value: current_user.id %>
                                   <div>
                                     <%= form.submit "Request" , class: 'btn btn-primary' %>
